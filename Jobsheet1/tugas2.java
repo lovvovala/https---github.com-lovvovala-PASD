@@ -24,7 +24,7 @@ public class tugas2 {
         String cariMatkul = sc.nextLine();
         tampilkanBerdasarMatkul(jadwal, cariMatkul); 
     }
-    // a. Fungsi Input Data [cite: 525]
+    // a. Fungsi Input Data
     static void inputJadwal(String[][] jdwl) {
         for (int i = 0; i < jdwl.length; i++) {
             System.out.println("Jadwal ke-" + (i + 1));
