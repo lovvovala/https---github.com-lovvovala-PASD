@@ -2,7 +2,7 @@ package Jobsheet2;
 
 public class Mahasiswa20 {
     String nama;
-    int nim;
+    String nim;
     String kelas;
     double ipk;
 
