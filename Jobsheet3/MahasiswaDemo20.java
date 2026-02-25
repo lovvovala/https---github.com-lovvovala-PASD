@@ -20,12 +20,14 @@ public class MahasiswaDemo20 {
             System.out.print("IPK\t: ");
             dummy = input.nextLine();
             arrayofMahasiswa20s[i].ipk = Float.parseFloat(dummy);
-            System.out.println("---------------------------------------------");
+            input.nextLine();
         }
+
         for (int i = 0; i < 3; i++) {
             System.out.println("Data Mahasiswa ke-" + (i + 1));
-            arrayofMahasiswa20s[i].cetakInfo();
+            arrayofMahasiswa20s[i].cetakInfo(); // Memanggil method dari class Mahasiswa
             System.out.println("---------------------------------------------");
         }
+
     }
 }

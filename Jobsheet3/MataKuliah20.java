@@ -18,5 +18,13 @@ public class MataKuliah20 {
         this.nama = nama;
         this.sks = sks;
         this.jumlahJam = jumlahJam;
+
     }
+
+    public void cetakInfo() {
+    System.out.println("Kode       : " + kodeMK);
+    System.out.println("Nama       : " + nama);
+    System.out.println("SKS        : " + sks);
+    System.out.println("Jumlah Jam : " + jumlahJam);
+}
 }
