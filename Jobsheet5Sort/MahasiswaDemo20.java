@@ -4,9 +4,12 @@ import java.util.Scanner;
 
 public class MahasiswaDemo20 {
     public static void main(String[] args) {
-        MaPres20 m = new MaPres20();
         Scanner sc = new Scanner(System.in);
-        for (int i = 0; i < 5; i++) {
+        System.out.print("Masukkan jumlah mahasiswa: ");
+        int jumMhs = sc.nextInt();
+        MaPres20 m = new MaPres20(jumMhs);
+        sc.nextLine(); 
+        for (int i = 0; i < jumMhs; i++) {
             System.out.print("NIM: ");
             String nim = sc.nextLine();
             System.out.print("Nama: ");
@@ -15,24 +18,30 @@ public class MahasiswaDemo20 {
             String kelas = sc.nextLine();
             System.out.print("IPK: ");
             double ipk = sc.nextDouble();
+            System.out.println("=============================================");
             sc.nextLine(); 
             m.tambah(new Mahasiswa20(nim, nama, kelas, ipk));
         }
-        System.out.println("Data sebelum sorting:");
+        
         m.tampil();
+        System.out.println("=============================================");
+        System.out.println("Pecarian data");
+        System.out.println("=============================================");
+        System.out.print("Masukkan IPK yang dicari: ");
+        double cari = sc.nextDouble();
+        double posisi2 = m.findBinarySearch(cari, 0, m.listMhs.length - 1);
+        
+        sc.nextLine();
 
-        m.bubbleSort();
-
-        System.out.println("Data setelah sorting berdasarkan IPK (BS) (DESC):");
-        m.tampil();
-
-        m.selectionSort();
-        System.out.println("Data setelah sorting berdasarkan IPK (SS) (ASC):");
-        m.tampil();
-
-        m.insertionSort();
-        System.out.println("Data setelah sorting berdasarkan IPK (IS) (ASC):");
-        m.tampil();
+        System.out.println("Menggunakan Sequential Search");
+        int pos = m.sequentialSearching(cari);
+        m.tampilPosisi(String.valueOf(cari), pos);
+        m.tampilDataSearch(cari, pos);
+        System.out.println("=============================================");
+        System.out.println("Menggunakan Binary Search");
+        System.out.println("==============================================");
+        m.tampilPosisi(String.valueOf(cari), (int) posisi2);
+        m.tampilDataSearch(cari, (int) posisi2);
 
     }
 }
