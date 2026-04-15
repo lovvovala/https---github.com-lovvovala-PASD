@@ -184,8 +184,14 @@ public class perpusmain {
                     }
                     break;
                 case 4:
+                    urutDenda(); // sorting dulu
+                    System.out.println("\nSETELAH DIURUTKAN (DENDA TERBESAR):");
                     tampilHeader();
-                    urutDenda(); // langsung urut + tampil di dalam method
+                    for (Pemijaman p : pemijamanArray) {
+                        p.tampilPeminjaman();
+                    }
+                    System.out.println(
+                            "==================================================================================");
                     break;
                 case 5:
                     System.out.print("Masukkan NIM yang dicari: ");
