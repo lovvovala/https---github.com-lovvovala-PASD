@@ -41,6 +41,8 @@ public class MhsDemo20 {
                         sc.nextLine();
                         dinilai.nilai = nilai;
                         System.out.printf("Nilai tugas %s telah dimasukkan: %d\n", dinilai.nama, dinilai.nilai);
+                        String biner = stack.konversiDesimalKeBiner(nilai);
+                        System.out.println("Nilai dalam biner: " + biner);
                     }
                     break;
                 case 3:

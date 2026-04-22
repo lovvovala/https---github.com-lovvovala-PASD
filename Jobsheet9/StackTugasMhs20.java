@@ -1,7 +1,5 @@
 package Jobsheet9;
 
-import java.util.Stack;
-
 public class StackTugasMhs20 {
     Mahasiswa20[] stack;
     int top;
@@ -80,4 +78,19 @@ public class StackTugasMhs20 {
     public int getJumlahTugas() {
         return top + 1;
     }
+
+    public String konversiDesimalKeBiner(int nilai) {
+        StackKoversi20 stack = new StackKoversi20(); // Membuat stack dengan ukuran 10
+        while (nilai > 0) {
+            int sisa = nilai % 2;
+            stack.push(sisa);
+            nilai = nilai / 2;
+        }
+        String biner = new String();
+        while (!stack.isEmpty()) {
+            biner += stack.pop();
+        }
+        return biner;
+    }
 }
+
