@@ -9,6 +9,7 @@ public class Main {
     int totalPendapatan = 0;
 
     // Method untuk menambah antrean pembeli
+    // Kompleksitas: O(1) — Alasan: Penambahan data di akhir langsung menggunakan pointer tail tanpa melalui perulangan (traversal).
     public void tambahAntrean(String nama, String hp) {
         Pembeli p = new Pembeli(nama, hp);
         Node newNode = new Node(p, counterAntrean++);
@@ -39,8 +40,8 @@ public class Main {
         }
     }
 
-    // Method untuk melayani antrean pembeli sekaligus input pesanan (Gabungan FIFO
-    // & DLL)
+    // Method untuk melayani antrean pembeli sekaligus input pesanan (Gabungan FIFO & DLL)
+    // Kompleksitas: O(1) — Alasan: Penghapusan antrean pembeli selalu dilakukan di elemen terdepan (head) secara langsung tanpa perulangan.
     public void layaniAntrean(int kode, String menu, int harga) {
         if (headAntrean == null) {
             System.out.println("Tidak ada antrean untuk dilayani.");
@@ -51,8 +52,7 @@ public class Main {
         Node dilayani = headAntrean;
         Pembeli p = (Pembeli) dilayani.data;
 
-        // 2. GABUNG DI SINI: Tambah ke daftar pesanan menggunakan NodePesanan (Tugas
-        // 2B)
+        // 2. GABUNG DI SINI: Tambah ke daftar pesanan menggunakan NodePesanan (Tugas 2B)
         Pesanan pes = new Pesanan(kode, menu, harga);
         NodePesanan newPesanan = new NodePesanan(tailPesanan, pes, null);
 
@@ -84,6 +84,7 @@ public class Main {
     }
 
     // Method untuk menampilkan laporan pesanan
+    // Kompleksitas: O(N^2) — Alasan: Menggunakan Bubble Sort manual dengan perulangan bersarang (nested loop) untuk membandingkan setiap elemen.
     public void laporanPesanan() {
         if (headPesanan == null) {
             System.out.println("Belum ada pesanan masuk.");
@@ -120,8 +121,8 @@ public class Main {
         }
     }
 
-    // Tugas 2C — Method hapusPesanan(int kodePesanan) menggunakan Double Linked
-    // List
+    // Tugas 2C — Method hapusPesanan(int kodePesanan) menggunakan Double Linked List
+    // Kompleksitas: O(N) — Alasan: Memerlukan perulangan (traversal) satu arah untuk mencari posisi node berdasarkan kodePesanan sebelum dihapus.
     public void hapusPesanan(int kodePesanan) {
         if (headPesanan == null) {
             System.out.println("Daftar pesanan masih kosong.");
@@ -174,6 +175,7 @@ public class Main {
     }
 
     // Tugas 3A — Sequential Search untuk mencari pembeli berdasarkan nama
+    // Kompleksitas: O(N) — Alasan: Menggunakan Sequential Search yang menelusuri elemen antrean satu per satu dari head sampai tail hingga data ditemukan.
     public void cariPembeli(String nama) {
         if (headAntrean == null) {
             System.out.println("Antrian pembeli masih kosong.");
@@ -204,8 +206,8 @@ public class Main {
         System.out.println("-------------------------------");
     }
 
-    // Tugas 3B — Mengurutkan antrean pembeli berdasarkan nama (Ascending) via
-    // Selection Sort
+    // Tugas 3B — Mengurutkan antrean pembeli berdasarkan nama (Ascending) via Selection Sort
+    // Kompleksitas: O(N^2) — Alasan: Menggunakan Selection Sort manual dengan nested loop untuk mencari nilai terkecil di sisa list pada setiap iterasi.
     public void sortAntrian() {
         if (headAntrean == null || headAntrean.next == null) {
             System.out.println("Antrian kosong atau hanya berisi 1 data, tidak perlu diurutkan.");
@@ -323,3 +325,5 @@ public class Main {
         sc.close();
     }
 }
+
+
