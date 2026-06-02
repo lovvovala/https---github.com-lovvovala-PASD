@@ -36,5 +36,14 @@ public class BTMain20 {
         bst.delete(3.57);
         System.out.println("\nDaftar semua mahasiswa setelah penghapusan 1 mahasiswa (in order traversal):");
         bst.traverseInOrder(bst.root);
+
+        //Tugas
+        System.out.println("\n=============================================");
+        System.out.println("               PENGUJIAN TUGAS             ");
+        System.out.println("=============================================");
+        bst.findMin();
+        bst.findMax();
+
+        bst.findAbove(3.5);
     }
 }
